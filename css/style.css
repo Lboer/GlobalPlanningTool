@@ -1,0 +1,107 @@
+body {
+    background-color: #004080;
+}
+
+.mainContainer{
+    width: 60%;
+    max-height: 100%;
+    margin: auto;
+    outline: black 1px solid;
+}
+
+.header{
+    background-color: teal;
+    color: white;
+    padding: 5px 10px;
+    border-bottom: black 1px solid;
+    max-height: 10%;
+}
+
+#setUp{
+    max-height: 40%;
+}
+
+.smallHeader{
+    background-color: #006B80;
+    color: white;
+    padding: 1px 10px;
+    border-bottom: black 1px solid;
+}
+
+.planning{
+    max-height: 60%;
+}
+
+p {
+    padding-left: 5px;
+}
+
+#projectName {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+#addPhase {
+    float: right;
+    margin: 20px 0 0 0;
+    background-color: white; 
+    color: black; 
+    border: 2px solid #00806B;
+    border-radius: 8px;
+    padding: 3px 8px;
+}
+
+.deletePhase, .addProduct {
+    float: right;
+    background-color: white; 
+    color: black; 
+    border: 2px solid #00806B;
+    border-radius: 8px;
+    padding: 3px 8px;
+    margin: 8px 0 0 0;
+    display: inline;
+}
+
+#addPhase:hover {
+    background-color: #00806B;
+    color: white;
+}
+
+.inline {
+    display: inline-block;
+}
+
+.phaseInput {
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.phaseNumber {
+    margin: 8px 1% 8px 0;
+    display: inline;
+}
+
+.phaseName {
+    margin: 8px 10% 8px 0;
+}
+
+.startDate {
+    margin: 8px 10% 8px 0;
+}
+
+.endDate {
+    margin: 8px 10% 8px 0;
+}
+
+.phaseBR {
+    width: 90%;
+    height: 10px;
+    word-break:break-all;
+}
