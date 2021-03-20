@@ -28,10 +28,10 @@ document.getElementById("addPhase").addEventListener("click", function () {
     breakline.classList.add("phaseBR");
     div.appendChild(breakline);
 
-    let startP = document.createElement("label");
-    startP.classList.add("dateLabel");
-    startP.innerHTML = "Start date";
-    div.appendChild(startP);
+    let startLabel = document.createElement("label");
+    startLabel.classList.add("dateLabel");
+    startLabel.innerHTML = "Start date";
+    div.appendChild(startLabel);
 
     let br = document.createElement("br");
     div.appendChild(br);
@@ -51,10 +51,10 @@ document.getElementById("addPhase").addEventListener("click", function () {
     breakl.classList.add("phaseBR");
     div.appendChild(breakl);
 
-    let endP = document.createElement("label");
-    endP.classList.add("dateLabel");
-    endP.innerHTML = "End date";
-    div.appendChild(endP);
+    let endLabel = document.createElement("label");
+    endLabel.classList.add("dateLabel");
+    endLabel.innerHTML = "End date";
+    div.appendChild(endLabel);
 
     let br2 = document.createElement("br");
     div.appendChild(br2);
@@ -64,6 +64,34 @@ document.getElementById("addPhase").addEventListener("click", function () {
     endDate.classList.add("phaseInput");
     endDate.classList.add("endDate");
     div.appendChild(endDate);
-    
+
+    let break2 = document.createElement("div");
+    break2.classList.add("phaseBR");
+    div.appendChild(break2);
+
+    let statusLabel = document.createElement("label");
+    statusLabel.classList.add("statusLabel");
+    statusLabel.innerHTML = "Status";
+    div.appendChild(statusLabel);
+
+    let br3 = document.createElement("br");
+    div.appendChild(br3);
+
+    let status = document.createElement("select");
+    status.classList.add("status");
+
+    let statusBegin = document.createElement("option");
+    statusBegin.innerHTML = "To Initialise";
+    status.appendChild(statusBegin);
+
+    let statusInProgress = document.createElement("option");
+    statusInProgress.innerHTML = "In Progress";
+    status.appendChild(statusInProgress);
+
+    let statusFinished = document.createElement("option");
+    statusFinished.innerHTML = "Finished";
+    status.appendChild(statusFinished);
+
+    div.appendChild(status);
     phaseSector.appendChild(div);
 });

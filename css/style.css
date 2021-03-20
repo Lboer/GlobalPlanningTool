@@ -63,7 +63,7 @@ p {
     border: 2px solid #00806B;
     border-radius: 8px;
     padding: 3px 8px;
-    margin: 8px 0 0 0;
+    margin: 5px 0 0 0;
     display: inline;
 }
 
@@ -104,4 +104,9 @@ p {
     width: 90%;
     height: 10px;
     word-break:break-all;
+}
+
+.status {
+    border: 6px solid transparent;
+    margin-bottom: 5px;
 }
