@@ -1,6 +1,5 @@
 let phaseSector = document.getElementById("phases");
 
-// use flexbox to get even alignment without any whitespaces
 document.getElementById("addPhase").addEventListener("click", function () {
     let div = document.createElement("div");
     div.classList.add("phase");
@@ -33,8 +32,7 @@ document.getElementById("addPhase").addEventListener("click", function () {
     startLabel.innerHTML = "Start date";
     div.appendChild(startLabel);
 
-    let br = document.createElement("br");
-    div.appendChild(br);
+    div.appendChild(document.createElement("br"));
 
     let startDate = document.createElement("input");
     startDate.type = "date";
@@ -44,7 +42,7 @@ document.getElementById("addPhase").addEventListener("click", function () {
 
     let addProduct = document.createElement("button");
     addProduct.innerHTML = "Add a product";
-    addProduct.classList.add("deletePhase");
+    addProduct.classList.add("addProduct");
     div.appendChild(addProduct);
 
     let breakl = document.createElement("div");
@@ -56,8 +54,7 @@ document.getElementById("addPhase").addEventListener("click", function () {
     endLabel.innerHTML = "End date";
     div.appendChild(endLabel);
 
-    let br2 = document.createElement("br");
-    div.appendChild(br2);
+    div.appendChild(document.createElement("br"));
 
     let endDate = document.createElement("input");
     endDate.type = "date";
@@ -74,8 +71,7 @@ document.getElementById("addPhase").addEventListener("click", function () {
     statusLabel.innerHTML = "Status";
     div.appendChild(statusLabel);
 
-    let br3 = document.createElement("br");
-    div.appendChild(br3);
+    div.appendChild(document.createElement("br"));
 
     let status = document.createElement("select");
     status.classList.add("status");
@@ -91,7 +87,37 @@ document.getElementById("addPhase").addEventListener("click", function () {
     let statusFinished = document.createElement("option");
     statusFinished.innerHTML = "Finished";
     status.appendChild(statusFinished);
-
     div.appendChild(status);
+
+    div.appendChild(document.createElement("br"));
+
+    let products = document.createElement("div");
+    products.classList.add("products");
+    div.appendChild(products);
+    
     phaseSector.appendChild(div);
+
+    // Deleting the phase
+    let deleteBtnAction = document.getElementsByClassName("deletePhase");
+
+    for(let i = 0; i < deleteBtnAction.length; i++){
+        deleteBtnAction[i].addEventListener("click", function() {
+            let parent = this.parentNode;
+            parent.remove();
+        });
+    }
+
+    // Adding products to the phase
+    let addBtnAction = document.getElementsByClassName("addProduct");
+    for(let i = 0; i < addBtnAction.length; i++){
+        addBtnAction[i].addEventListener("click", function() {
+            let parent = this.parentNode;
+            let product = parent.children[17];
+
+            let label = document.createElement("label");
+            label.innerHTML = "Testing";
+            product.appendChild(label);
+            console.log(product);
+        });
+    }
 });

@@ -88,15 +88,7 @@ p {
     display: inline;
 }
 
-.phaseName {
-    margin: 8px 10% 8px 0;
-}
-
-.startDate {
-    margin: 8px 10% 8px 0;
-}
-
-.endDate {
+.phaseName, .startDate, .endDate {
     margin: 8px 10% 8px 0;
 }
 
