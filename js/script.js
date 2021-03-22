@@ -109,15 +109,13 @@ document.getElementById("addPhase").addEventListener("click", function () {
 
     // Adding products to the phase
     let addBtnAction = document.getElementsByClassName("addProduct");
-    for(let i = 0; i < addBtnAction.length; i++){
+    for(let i = addBtnAction.length - 1; i < addBtnAction.length; i++){
         addBtnAction[i].addEventListener("click", function() {
-            let parent = this.parentNode;
-            let product = parent.children[17];
+            let product = this.parentNode.children[17];
 
             let label = document.createElement("label");
             label.innerHTML = "Testing";
             product.appendChild(label);
-            console.log(product);
         });
     }
 });
