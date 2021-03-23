@@ -114,8 +114,18 @@ document.getElementById("addPhase").addEventListener("click", function () {
             let product = this.parentNode.children[17];
 
             let label = document.createElement("label");
-            label.innerHTML = "Testing";
+            label.classList.add("productNumber");
+            label.innerHTML = "number";
             product.appendChild(label);
+
+            let productName = document.createElement("input");
+            productName.type = "text";
+            productName.placeholder = "Product name...";
+            productName.classList.add("phaseInput");
+            productName.classList.add("phaseName");
+            product.appendChild(productName);
+
+            product.appendChild(document.createElement("br"));
         });
     }
 });

@@ -102,3 +102,8 @@ p {
     border: 6px solid transparent;
     margin-bottom: 5px;
 }
+
+.productNumber {
+    margin: 8px 1% 8px 0;
+    display: inline;
+}
