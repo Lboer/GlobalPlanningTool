@@ -126,6 +126,30 @@ document.getElementById("addPhase").addEventListener("click", function () {
             product.appendChild(productName);
 
             product.appendChild(document.createElement("br"));
+
+            let startProductLabel = document.createElement("label");
+            startProductLabel.classList.add("productNumber");
+            startProductLabel.innerHTML = "Start";
+            product.appendChild(startProductLabel);
+
+            let endProductLabel = document.createElement("label");
+            endProductLabel.classList.add("productNumber");
+            endProductLabel.innerHTML = "End";
+            product.appendChild(endProductLabel);
+
+            let startDate = document.createElement("input");
+            startDate.type = "date";
+            startDate.classList.add("phaseInput");
+            startDate.classList.add("dateLabel");
+            div.appendChild(startDate);
+
+            let endDate = document.createElement("input");
+            endDate.type = "date";
+            endDate.classList.add("phaseInput");
+            endDate.classList.add("dateLabel");
+            div.appendChild(endDate);
+
+            product.appendChild(document.createElement("br"));
         });
     }
 });
