@@ -125,6 +125,22 @@ document.getElementById("addPhase").addEventListener("click", function () {
             productName.classList.add("phaseName");
             product.appendChild(productName);
 
+            let status = document.createElement("select");
+            status.classList.add("status");
+
+            let statusBegin = document.createElement("option");
+            statusBegin.innerHTML = "To Initialise";
+            status.appendChild(statusBegin);
+
+            let statusInProgress = document.createElement("option");
+            statusInProgress.innerHTML = "In Progress";
+            status.appendChild(statusInProgress);
+
+            let statusFinished = document.createElement("option");
+            statusFinished.innerHTML = "Finished";
+            status.appendChild(statusFinished);
+            product.appendChild(status);
+
             product.appendChild(document.createElement("br"));
 
             let startProductLabel = document.createElement("label");
@@ -137,17 +153,19 @@ document.getElementById("addPhase").addEventListener("click", function () {
             endProductLabel.innerHTML = "End";
             product.appendChild(endProductLabel);
 
+            product.appendChild(document.createElement("br"));
+
             let startDate = document.createElement("input");
             startDate.type = "date";
             startDate.classList.add("phaseInput");
             startDate.classList.add("dateLabel");
-            div.appendChild(startDate);
+            product.appendChild(startDate);
 
             let endDate = document.createElement("input");
             endDate.type = "date";
             endDate.classList.add("phaseInput");
             endDate.classList.add("dateLabel");
-            div.appendChild(endDate);
+            product.appendChild(endDate);
 
             product.appendChild(document.createElement("br"));
         });
