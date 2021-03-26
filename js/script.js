@@ -125,6 +125,13 @@ document.getElementById("addPhase").addEventListener("click", function () {
             productName.classList.add("phaseName");
             product.appendChild(productName);
 
+            let toDeliver = document.createElement("input");
+            toDeliver.type = "text";
+            toDeliver.placeholder = "Product to deliver";
+            toDeliver.classList.add("phaseInput");
+            toDeliver.classList.add("phaseName");
+            product.appendChild(toDeliver);
+
             let status = document.createElement("select");
             status.classList.add("status");
 
