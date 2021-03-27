@@ -115,7 +115,7 @@ document.getElementById("addPhase").addEventListener("click", function () {
 
             let label = document.createElement("label");
             label.classList.add("productNumber");
-            label.innerHTML = "number";
+            label.innerHTML = productNumber(product);
             product.appendChild(label);
 
             let productName = document.createElement("input");
@@ -178,3 +178,8 @@ document.getElementById("addPhase").addEventListener("click", function () {
         });
     }
 });
+
+function productNumber(parent)
+{
+    return `${parent.parentNode.children[0].lastChild.data[0]}.${parent.childElementCount/11}`;
+}
