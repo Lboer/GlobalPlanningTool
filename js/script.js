@@ -5,7 +5,7 @@ document.getElementById("addPhase").addEventListener("click", function () {
     div.classList.add("phase");
 
     let number = document.getElementsByClassName("phase").length
-    let phaseNumber = (number + 1) + ".0";
+    let phaseNumber = (number + 1);
     let phaseCode = document.createElement("h3");
     phaseCode.classList.add("phaseNumber");
     phaseCode.innerHTML = phaseNumber;
@@ -13,7 +13,7 @@ document.getElementById("addPhase").addEventListener("click", function () {
 
     let phaseName = document.createElement("input");
     phaseName.type = "text";
-    phaseName.placeholder = "Phase name...";
+    phaseName.placeholder = "Insert phase name.";
     phaseName.classList.add("phaseInput");
     phaseName.classList.add("phaseName");
     div.appendChild(phaseName);
