@@ -32,6 +32,11 @@ document.getElementById("addPhase").addEventListener("click", function () {
     startLabel.innerHTML = "Start date";
     div.appendChild(startLabel);
 
+    let endLabel = document.createElement("label");
+    endLabel.classList.add("dateLabel");
+    endLabel.innerHTML = "End date";
+    div.appendChild(endLabel);
+
     div.appendChild(document.createElement("br"));
 
     let startDate = document.createElement("input");
@@ -44,17 +49,6 @@ document.getElementById("addPhase").addEventListener("click", function () {
     addProduct.innerHTML = "Add a product";
     addProduct.classList.add("addProduct");
     div.appendChild(addProduct);
-
-    let breakl = document.createElement("div");
-    breakl.classList.add("phaseBR");
-    div.appendChild(breakl);
-
-    let endLabel = document.createElement("label");
-    endLabel.classList.add("dateLabel");
-    endLabel.innerHTML = "End date";
-    div.appendChild(endLabel);
-
-    div.appendChild(document.createElement("br"));
 
     let endDate = document.createElement("input");
     endDate.type = "date";
@@ -111,7 +105,7 @@ document.getElementById("addPhase").addEventListener("click", function () {
     let addBtnAction = document.getElementsByClassName("addProduct");
     for(let i = addBtnAction.length - 1; i < addBtnAction.length; i++){
         addBtnAction[i].addEventListener("click", function() {
-            let product = this.parentNode.children[17];
+            let product = this.parentNode.children[15];
 
             let label = document.createElement("label");
             label.classList.add("productNumber");
@@ -125,12 +119,53 @@ document.getElementById("addPhase").addEventListener("click", function () {
             productName.classList.add("phaseName");
             product.appendChild(productName);
 
+            product.appendChild(document.createElement("br"));
+
             let toDeliver = document.createElement("input");
             toDeliver.type = "text";
             toDeliver.placeholder = "Product to deliver";
             toDeliver.classList.add("phaseInput");
             toDeliver.classList.add("phaseName");
             product.appendChild(toDeliver);
+
+            product.appendChild(document.createElement("br"));
+
+            let startProductLabel = document.createElement("label");
+            startProductLabel.classList.add("dateLabel");
+            startProductLabel.innerHTML = "Start date";
+            product.appendChild(startProductLabel);
+
+            let endProductLabel = document.createElement("label");
+            endProductLabel.classList.add("dateLabel");
+            endProductLabel.innerHTML = "End date";
+            product.appendChild(endProductLabel);
+
+            product.appendChild(document.createElement("br"));
+
+            let startDate = document.createElement("input");
+            startDate.type = "date";
+            startDate.classList.add("phaseInput");
+            startDate.classList.add("startDate");
+            product.appendChild(startDate);
+
+            let endDate = document.createElement("input");
+            endDate.type = "date";
+            endDate.classList.add("phaseInput");
+            endDate.classList.add("endDate");
+            product.appendChild(endDate);
+
+            product.appendChild(document.createElement("br"));
+
+            let break3 = document.createElement("div");
+            break3.classList.add("phaseBR");
+            div.appendChild(break3);
+
+            let statusLabel = document.createElement("label");
+            statusLabel.classList.add("statusLabel");
+            statusLabel.innerHTML = "Status";
+            product.appendChild(statusLabel);
+
+            product.appendChild(document.createElement("br"));
 
             let status = document.createElement("select");
             status.classList.add("status");
@@ -149,37 +184,11 @@ document.getElementById("addPhase").addEventListener("click", function () {
             product.appendChild(status);
 
             product.appendChild(document.createElement("br"));
-
-            let startProductLabel = document.createElement("label");
-            startProductLabel.classList.add("productNumber");
-            startProductLabel.innerHTML = "Start";
-            product.appendChild(startProductLabel);
-
-            let endProductLabel = document.createElement("label");
-            endProductLabel.classList.add("productNumber");
-            endProductLabel.innerHTML = "End";
-            product.appendChild(endProductLabel);
-
-            product.appendChild(document.createElement("br"));
-
-            let startDate = document.createElement("input");
-            startDate.type = "date";
-            startDate.classList.add("phaseInput");
-            startDate.classList.add("dateLabel");
-            product.appendChild(startDate);
-
-            let endDate = document.createElement("input");
-            endDate.type = "date";
-            endDate.classList.add("phaseInput");
-            endDate.classList.add("dateLabel");
-            product.appendChild(endDate);
-
-            product.appendChild(document.createElement("br"));
         });
     }
 });
 
 function productNumber(parent)
 {
-    return `${parent.parentNode.children[0].lastChild.data[0]}.${parent.childElementCount/11}`;
+    return `${parent.parentNode.children[0].lastChild.data[0]}.${parent.childElementCount/15}`;
 }
