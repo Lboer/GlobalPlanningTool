@@ -123,3 +123,7 @@ p {
 .products {
     margin: 0 0 0 15px;
 }
+
+.toDeliver {
+    margin: 8px 7.5% 8px 0;
+}

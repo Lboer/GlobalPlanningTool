@@ -60,15 +60,14 @@ document.getElementById("addPhase").addEventListener("click", function () {
     break2.classList.add("phaseBR");
     div.appendChild(break2);
 
-    let statusLabel = document.createElement("label");
-    statusLabel.classList.add("statusLabel");
-    statusLabel.innerHTML = "Status";
-    div.appendChild(statusLabel);
-
-    div.appendChild(document.createElement("br"));
-
     let status = document.createElement("select");
     status.classList.add("status");
+
+    let placeholder = document.createElement("option");
+    placeholder.disabled = true;
+    placeholder.selected;
+    placeholder.innerHTML = "Select current phase";
+    status.appendChild(placeholder);
 
     let statusBegin = document.createElement("option");
     statusBegin.innerHTML = "To Initialise";
@@ -105,7 +104,8 @@ document.getElementById("addPhase").addEventListener("click", function () {
     let addBtnAction = document.getElementsByClassName("addProduct");
     for(let i = addBtnAction.length - 1; i < addBtnAction.length; i++){
         addBtnAction[i].addEventListener("click", function() {
-            let product = this.parentNode.children[15];
+            console.log(this.parentNode.children);
+            let product = this.parentNode.children[13];
 
             let label = document.createElement("label");
             label.classList.add("productNumber");
@@ -126,7 +126,30 @@ document.getElementById("addPhase").addEventListener("click", function () {
             toDeliver.placeholder = "Product to deliver";
             toDeliver.classList.add("phaseInput");
             toDeliver.classList.add("phaseName");
+            toDeliver.classList.add("toDeliver");
             product.appendChild(toDeliver);
+
+            let status = document.createElement("select");
+            status.classList.add("status");
+
+            let placeholder = document.createElement("option");
+            placeholder.disabled = true;
+            placeholder.selected;
+            placeholder.innerHTML = "Select current phase";
+            status.appendChild(placeholder);
+
+            let statusBegin = document.createElement("option");
+            statusBegin.innerHTML = "To Initialise";
+            status.appendChild(statusBegin);
+
+            let statusInProgress = document.createElement("option");
+            statusInProgress.innerHTML = "In Progress";
+            status.appendChild(statusInProgress);
+
+            let statusFinished = document.createElement("option");
+            statusFinished.innerHTML = "Finished";
+            status.appendChild(statusFinished);
+            product.appendChild(status);
 
             product.appendChild(document.createElement("br"));
 
@@ -160,29 +183,6 @@ document.getElementById("addPhase").addEventListener("click", function () {
             break3.classList.add("phaseBR");
             div.appendChild(break3);
 
-            let statusLabel = document.createElement("label");
-            statusLabel.classList.add("statusLabel");
-            statusLabel.innerHTML = "Status";
-            product.appendChild(statusLabel);
-
-            product.appendChild(document.createElement("br"));
-
-            let status = document.createElement("select");
-            status.classList.add("status");
-
-            let statusBegin = document.createElement("option");
-            statusBegin.innerHTML = "To Initialise";
-            status.appendChild(statusBegin);
-
-            let statusInProgress = document.createElement("option");
-            statusInProgress.innerHTML = "In Progress";
-            status.appendChild(statusInProgress);
-
-            let statusFinished = document.createElement("option");
-            statusFinished.innerHTML = "Finished";
-            status.appendChild(statusFinished);
-            product.appendChild(status);
-
             product.appendChild(document.createElement("br"));
         });
     }
@@ -190,5 +190,5 @@ document.getElementById("addPhase").addEventListener("click", function () {
 
 function productNumber(parent)
 {
-    return `${parent.parentNode.children[0].lastChild.data[0]}.${parent.childElementCount/15}`;
+    return `${parent.parentNode.children[0].lastChild.data[0]}.${parent.childElementCount/13}`;
 }
