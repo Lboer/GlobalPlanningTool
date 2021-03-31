@@ -1,6 +1,8 @@
 let phaseSector = document.getElementById("phases");
 
 document.getElementById("addPhase").addEventListener("click", function () {
+    document.getElementsByClassName("hidden")[0].style.display = "block";
+
     let div = document.createElement("div");
     div.classList.add("phase");
 
@@ -104,7 +106,6 @@ document.getElementById("addPhase").addEventListener("click", function () {
     let addBtnAction = document.getElementsByClassName("addProduct");
     for(let i = addBtnAction.length - 1; i < addBtnAction.length; i++){
         addBtnAction[i].addEventListener("click", function() {
-            console.log(this.parentNode.children);
             let product = this.parentNode.children[13];
 
             let label = document.createElement("label");
@@ -182,13 +183,15 @@ document.getElementById("addPhase").addEventListener("click", function () {
             let break3 = document.createElement("div");
             break3.classList.add("phaseBR");
             div.appendChild(break3);
-
-            product.appendChild(document.createElement("br"));
         });
     }
 });
 
 function productNumber(parent)
 {
-    return `${parent.parentNode.children[0].lastChild.data[0]}.${parent.childElementCount/13}`;
+    return `${parent.parentNode.children[0].lastChild.data[0]}.${parent.childElementCount/12}`;
 }
+
+document.getElementById("export").addEventListener("click", function () {
+    console.log("First convert all data to .json, then convert that data to .csv");
+});
