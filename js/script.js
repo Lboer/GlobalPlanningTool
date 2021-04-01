@@ -1,5 +1,14 @@
 let phaseSector = document.getElementById("phases");
 
+const planningObject = {
+    ID: 0,
+    Name: "phase",
+    Produce: "",
+    Status: "",
+    Start: new Date(),
+    End: new Date()
+}
+
 document.getElementById("addPhase").addEventListener("click", function () {
     document.getElementsByClassName("hidden")[0].style.display = "block";
 
@@ -193,5 +202,22 @@ function productNumber(parent)
 }
 
 document.getElementById("export").addEventListener("click", function () {
-    console.log("First convert all data to .json, then convert that data to .csv");
+    let jsonArray = new Array();
+    for(i = 0; i < document.getElementsByClassName("phase").length; i++){
+        let phase = document.getElementsByClassName("phase")[i];
+        let object = Object.create(planningObject);
+
+        object.ID = parseFloat(phase.children[0].firstChild.data);
+        object.Name = phase.children[1].value;
+        object.Status = phase.children[11].value;
+        object.Start = phase.children[7].value;
+        object.End = phase.children[9].value;
+
+        jsonArray.push(object);
+        for(i = 0; i < (phase.children[13].children.length/12); i++){
+            //add products to the array!
+        }
+    }
+    console.log(jsonArray);
+    // ID, Name, To Deliver, Status, Starting Date, Ending Date
 });
