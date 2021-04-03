@@ -206,6 +206,7 @@ document.getElementById("export").addEventListener("click", function () {
   let jsonArray = new Array();
 
   for (i = 0; i < document.getElementsByClassName("phase").length; i++) {
+    console.log(document.getElementsByClassName("phase")[i]);
     let phase  = document.getElementsByClassName("phase")[i];
     let object = Object.create(planningObject);
 
@@ -217,16 +218,18 @@ document.getElementById("export").addEventListener("click", function () {
 
     jsonArray.push(object);
     let product = phase.children[13].children;
-    for (i = 0; i < product.length / 12; i++) {
-      let object     = Object.create(planningObject);
-      object.Id      = parseFloat(product[(i*12)+0].innerHTML);
-      object.Name    = product[(i*12)+1].value;
-      object.Produce = product[(i*12)+3].value;
-      object.Status  = product[(i*12)+4].value;
-      object.Start   = product[(i*12)+9].value;
-      object.End     = product[(i*12)+10].value;
-
-      jsonArray.push(object);
+    if(product.length > 0){
+      for (i = 0; i < product.length / 12; i++) {
+        let object     = Object.create(planningObject);
+        object.Id      = parseFloat(product[(i*12)+0].innerHTML);
+        object.Name    = product[(i*12)+1].value;
+        object.Produce = product[(i*12)+3].value;
+        object.Status  = product[(i*12)+4].value;
+        object.Start   = product[(i*12)+9].value;
+        object.End     = product[(i*12)+10].value;
+  
+        jsonArray.push(object);
+      }
     }
   }
 
