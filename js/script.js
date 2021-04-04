@@ -219,14 +219,14 @@ document.getElementById("export").addEventListener("click", function () {
     jsonArray.push(object);
     let product = phase.children[13].children;
     if(product.length > 0){
-      for (i = 0; i < product.length / 12; i++) {
+      for (j = 0; j < product.length / 12; j++) {
         let object     = Object.create(planningObject);
-        object.Id      = parseFloat(product[(i*12)+0].innerHTML);
-        object.Name    = product[(i*12)+1].value;
-        object.Produce = product[(i*12)+3].value;
-        object.Status  = product[(i*12)+4].value;
-        object.Start   = product[(i*12)+9].value;
-        object.End     = product[(i*12)+10].value;
+        object.Id      = parseFloat(product[(j*12)+0].innerHTML);
+        object.Name    = product[(j*12)+1].value;
+        object.Produce = product[(j*12)+3].value;
+        object.Status  = product[(j*12)+4].value;
+        object.Start   = product[(j*12)+9].value;
+        object.End     = product[(j*12)+10].value;
   
         jsonArray.push(object);
       }
