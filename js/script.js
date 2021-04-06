@@ -249,5 +249,31 @@ function convertToCSV(json) {
   csv = csv.join('\r\n');
 
   console.log(csv)
+
   // download csv file with project name as file name
+  let downloadName = document.getElementById("projectName");
+  let finalVal = '';
+
+  for (let i = 0; i < csv.length; i++) {
+    let value = csv[i];
+
+      for (let j = 0; j < value.length; j++) {
+        let innerValue =  value[j]===null?'':value[j].toString();
+        let result = innerValue.replace(/"/g, '""');
+        if (result.search(/("|,|\n)/g) >= 0)
+            result = '"' + result + '"';
+        if (j > 0)
+            finalVal += ',';
+        finalVal += result;
+      }
+
+      finalVal += '\n';
+  }
+
+  console.log(finalVal);
+
+  var pom = document.createElement('a');
+  pom.setAttribute('href', 'data:text/csv;charset=utf-8,' + encodeURIComponent(finalVal));
+  pom.setAttribute('download', downloadName);
+  pom.click();
 }
