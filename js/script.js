@@ -205,8 +205,7 @@ function productNumber(parent) {
 document.getElementById("export").addEventListener("click", function () {
   let jsonArray = new Array();
 
-  for (i = 0; i < document.getElementsByClassName("phase").length; i++) {
-    console.log(document.getElementsByClassName("phase")[i]);
+  for (let i = 0; i < document.getElementsByClassName("phase").length; i++) {
     let phase  = document.getElementsByClassName("phase")[i];
     let object = Object.create(planningObject);
 
@@ -219,7 +218,7 @@ document.getElementById("export").addEventListener("click", function () {
     jsonArray.push(object);
     let product = phase.children[13].children;
     if(product.length > 0){
-      for (j = 0; j < product.length / 12; j++) {
+      for (let j = 0; j < product.length / 12; j++) {
         let object     = Object.create(planningObject);
         object.Id      = parseFloat(product[(j*12)+0].innerHTML);
         object.Name    = product[(j*12)+1].value;
@@ -248,32 +247,11 @@ function convertToCSV(json) {
   csv.unshift(fields.join(',')) // add header column
   csv = csv.join('\r\n');
 
-  console.log(csv)
-
   // download csv file with project name as file name
-  let downloadName = document.getElementById("projectName");
-  let finalVal = '';
-
-  for (let i = 0; i < csv.length; i++) {
-    let value = csv[i];
-
-      for (let j = 0; j < value.length; j++) {
-        let innerValue =  value[j]===null?'':value[j].toString();
-        let result = innerValue.replace(/"/g, '""');
-        if (result.search(/("|,|\n)/g) >= 0)
-            result = '"' + result + '"';
-        if (j > 0)
-            finalVal += ',';
-        finalVal += result;
-      }
-
-      finalVal += '\n';
-  }
-
-  console.log(finalVal);
+  let downloadName = document.getElementById("projectName").value;
 
   var pom = document.createElement('a');
-  pom.setAttribute('href', 'data:text/csv;charset=utf-8,' + encodeURIComponent(finalVal));
-  pom.setAttribute('download', downloadName);
+  pom.setAttribute('href', 'data:text/csv;charset=utf-8,' + encodeURIComponent(csv));
+  pom.setAttribute('download', downloadName + ".csv");
   pom.click();
 }
