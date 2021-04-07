@@ -6,96 +6,97 @@ const planningObject = {
   Produce: "",
   Status: "",
   Start: new Date(),
-  End: new Date(),
+  End: new Date()
 };
 
 document.getElementById("addPhase").addEventListener("click", function () {
   document.getElementsByClassName("hidden")[0].style.display = "block";
 
   let div = document.createElement("div");
+  let number           = document.getElementsByClassName("phase").length;
+  let phaseNumber      = number + 1;
+  let phaseCode        = document.createElement("h3");
+  let phaseName        = document.createElement("input");
+  let deleteBtn        = document.createElement("button");
+  let breakline        = document.createElement("div");
+  let startLabel       = document.createElement("label");
+  let endLabel         = document.createElement("label");
+  let startDate        = document.createElement("input");
+  let addProduct       = document.createElement("button");
+  let endDate          = document.createElement("input");
+  let break2           = document.createElement("div");
+  let status           = document.createElement("select");
+  let placeholder      = document.createElement("option");
+  let statusBegin      = document.createElement("option");
+  let statusInProgress = document.createElement("option");
+  let statusFinished   = document.createElement("option");
+  let products         = document.createElement("div");
+
   div.classList.add("phase");
 
-  let number          = document.getElementsByClassName("phase").length;
-  let phaseNumber     = number + 1;
-  let phaseCode       = document.createElement("h3");
   phaseCode.classList.add("phaseNumber");
   phaseCode.innerHTML = phaseNumber;
   div.appendChild(phaseCode);
 
-  let phaseName         = document.createElement("input");
   phaseName.type        = "text";
   phaseName.placeholder = "Insert phase name.";
   phaseName.classList.add("phaseInput");
   phaseName.classList.add("phaseName");
   div.appendChild(phaseName);
 
-  let deleteBtn       = document.createElement("button");
   deleteBtn.innerHTML = "Delete this phase";
   deleteBtn.classList.add("deletePhase");
   div.appendChild(deleteBtn);
 
-  let breakline = document.createElement("div");
   breakline.classList.add("phaseBR");
   div.appendChild(breakline);
 
-  let startLabel = document.createElement("label");
   startLabel.classList.add("dateLabel");
   startLabel.innerHTML = "Start date";
   div.appendChild(startLabel);
 
-  let endLabel       = document.createElement("label");
   endLabel.classList.add("dateLabel");
   endLabel.innerHTML = "End date";
   div.appendChild(endLabel);
 
   div.appendChild(document.createElement("br"));
 
-  let startDate  = document.createElement("input");
   startDate.type = "date";
   startDate.classList.add("phaseInput");
   startDate.classList.add("startDate");
   div.appendChild(startDate);
 
-  let addProduct       = document.createElement("button");
   addProduct.innerHTML = "Add a product";
   addProduct.classList.add("addProduct");
   div.appendChild(addProduct);
 
-  let endDate  = document.createElement("input");
   endDate.type = "date";
   endDate.classList.add("phaseInput");
   endDate.classList.add("endDate");
   div.appendChild(endDate);
 
-  let break2 = document.createElement("div");
   break2.classList.add("phaseBR");
   div.appendChild(break2);
 
-  let status = document.createElement("select");
   status.classList.add("status");
 
-  let placeholder       = document.createElement("option");
   placeholder.disabled  = true;
   placeholder.selected;
   placeholder.innerHTML = "Select current phase";
   status.appendChild(placeholder);
 
-  let statusBegin       = document.createElement("option");
   statusBegin.innerHTML = "To Initialise";
   status.appendChild(statusBegin);
 
-  let statusInProgress       = document.createElement("option");
   statusInProgress.innerHTML = "In Progress";
   status.appendChild(statusInProgress);
 
-  let statusFinished       = document.createElement("option");
   statusFinished.innerHTML = "Finished";
   status.appendChild(statusFinished);
   div.appendChild(status);
 
   div.appendChild(document.createElement("br"));
 
-  let products = document.createElement("div");
   products.classList.add("products");
   div.appendChild(products);
 
@@ -226,7 +227,7 @@ document.getElementById("export").addEventListener("click", function () {
         object.Status  = product[(j*12)+4].value;
         object.Start   = product[(j*12)+9].value;
         object.End     = product[(j*12)+10].value;
-  
+
         jsonArray.push(object);
       }
     }
@@ -237,21 +238,22 @@ document.getElementById("export").addEventListener("click", function () {
 
 function convertToCSV(json) {
   json[0]["Produce"] = "";
-  var fields = Object.keys(json[0])
-  var replacer = function(key, value) { return value === null ? '' : value } 
-  var csv = json.map(function(row){
+  let fields = Object.keys(json[0]);
+  let replacer = function(key, value) { return value === null ? "" : value }
+  let csv = json.map(function(row){
     return fields.map(function(fieldName){
       return JSON.stringify(row[fieldName], replacer)
-    }).join(',')
-  })
-  csv.unshift(fields.join(',')) // add header column
-  csv = csv.join('\r\n');
+    }).join(",")
+  });
+  csv.unshift(fields.join(",")); // add header column
+  csv = csv.join("\r\n");
 
   // download csv file with project name as file name
   let downloadName = document.getElementById("projectName").value;
 
-  var pom = document.createElement('a');
-  pom.setAttribute('href', 'data:text/csv;charset=utf-8,' + encodeURIComponent(csv));
-  pom.setAttribute('download', downloadName + ".csv");
+  let pom = document.createElement("a");
+  pom.setAttribute("href", "data:text/csv;charset=utf-8," +
+    encodeURIComponent(csv));
+  pom.setAttribute("download", downloadName + ".csv");
   pom.click();
 }
