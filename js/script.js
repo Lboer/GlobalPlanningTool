@@ -3,7 +3,7 @@ let phaseSector = document.getElementById("phases");
 const planningObject = {
   Id: 0,
   Name: "phase",
-  Produce: "",
+  RequiredBeforeStart: "",
   Status: "",
   Start: new Date(),
   End: new Date()
@@ -144,7 +144,7 @@ document.getElementById("addPhase").addEventListener("click", function () {
       product.appendChild(document.createElement("br"));
 
       toDeliver.type        = "text";
-      toDeliver.placeholder = "Product to deliver";
+      toDeliver.placeholder = "Required to start Product";
       toDeliver.classList.add("phaseInput");
       toDeliver.classList.add("phaseName");
       toDeliver.classList.add("toDeliver");
@@ -223,7 +223,7 @@ document.getElementById("export").addEventListener("click", function () {
         let object     = Object.create(planningObject);
         object.Id      = parseFloat(product[(j*12)+0].innerHTML);
         object.Name    = product[(j*12)+1].value;
-        object.Produce = product[(j*12)+3].value;
+        object.RequiredBeforeStart = product[(j*12)+3].value;
         object.Status  = product[(j*12)+4].value;
         object.Start   = product[(j*12)+9].value;
         object.End     = product[(j*12)+10].value;
@@ -237,7 +237,7 @@ document.getElementById("export").addEventListener("click", function () {
 });
 
 function convertToCSV(json) {
-  json[0]["Produce"] = "";
+  json[0]["RequiredBeforeStart"] = "";
   let fields   = Object.keys(json[0]);
   let replacer = function(key, value) { return value === null ? "" : value }
   let csv      = json.map(function(row){
