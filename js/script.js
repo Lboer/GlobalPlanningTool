@@ -144,7 +144,7 @@ document.getElementById("addPhase").addEventListener("click", function () {
       product.appendChild(document.createElement("br"));
 
       toDeliver.type        = "text";
-      toDeliver.placeholder = "Required to start Product";
+      toDeliver.placeholder = "Required before start:";
       toDeliver.classList.add("phaseInput");
       toDeliver.classList.add("phaseName");
       toDeliver.classList.add("toDeliver");
