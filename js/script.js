@@ -9,7 +9,9 @@ const planningObject = {
   End: new Date()
 };
 
+// add new/extra phase
 document.getElementById("addPhase").addEventListener("click", function () {
+  // unhide convert to .csv button
   document.getElementsByClassName("hidden")[0].style.display = "block";
 
   let div              = document.createElement("div");
@@ -203,6 +205,7 @@ function productNumber(parent) {
   }`;
 }
 
+// put all arrays and products in to a convertable array
 document.getElementById("export").addEventListener("click", function () {
   let jsonArray = new Array();
 
@@ -236,6 +239,7 @@ document.getElementById("export").addEventListener("click", function () {
   convertToCSV(jsonArray);
 });
 
+// convert the final array to .csv
 function convertToCSV(json) {
   json[0]["RequiredBeforeStart"] = "";
   let fields   = Object.keys(json[0]);
